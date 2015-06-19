@@ -1,6 +1,6 @@
 /*
 
-darg=kgrey=rgb(30,30,30);
+darkgrey=rgb(30,30,30);
 lightgrey=rgb(70,70,70);
 lightblue=rgb(50,170,220);
 
@@ -41,14 +41,14 @@ video {
 
 #pbar-container {
     margin-top: 2px;
-    padding-bottom: 2px;
+    padding-bottom: 1px;
     background-color: rgb(70, 70, 70);
 }
 
 #pbar {
     height: 5px;
     margin-top: 2px;
-    width: 50%;
+    width: 0%;
     background-color: rgb(50, 170, 220);
 }
 
