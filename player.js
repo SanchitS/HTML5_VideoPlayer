@@ -6,6 +6,9 @@ window.addEventListener('load', function () {
     //progress bar container
     pbar = document.getElementById('pbar');
 
+    //progress bar container
+    pbarContainer = document.getElementById('pbar-container');
+
     //    button container
     playButton = document.getElementById('play-button');
 
@@ -14,6 +17,7 @@ window.addEventListener('load', function () {
     video.addEventListener('canplay', function () {
 
         playButton.addEventListener('click', playOrPause, false);
+        pbarContainer.addEventListener('click', skip, false);
 
     }, false);
 
@@ -38,4 +42,12 @@ function updatePlayer() {
         window.clearInterval(update);
         playButton.src = 'images/replay.png';
     }
+}
+
+function skip(ev) {
+    var mouseX = ev.pageX - pbarContainer.offsetLeft;
+    var width = window.getComputedStyle(pbarContainer).getPropertyValue('width');
+    width = parseFloat(width.substr(0, width.length - 2));
+    video.currentTime = (mouseX / width) * video.duration;
+    updatePlayer();
 }
