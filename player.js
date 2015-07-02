@@ -5,8 +5,6 @@ window.addEventListener('load', function () {
 
     //progress bar container
     pbar = document.getElementById('pbar');
-
-    //progress bar container
     pbarContainer = document.getElementById('pbar-container');
 
     //    button container
@@ -15,6 +13,7 @@ window.addEventListener('load', function () {
     soundButton = document.getElementById('sound-button');
     sbarContainer = document.getElementById('sbar-container');
     sbar = document.getElementById('sbar');
+    fullscreenButton = document.getElementById('fullscreen-button');
 
     video.load();
 
@@ -25,6 +24,7 @@ window.addEventListener('load', function () {
         updatePlayer();
         soundButton.addEventListener('click', MuteOrUnmute, false);
         sbarContainer.addEventListener('click', changeVolume, false);
+        fullscreenButton.addEventListener('click', fullscreen, false);
 
     }, false);
 
@@ -97,4 +97,16 @@ function changeVolume(ev) {
     video.muted = false;
     soundButton.src = 'images/sound.png';
     sbar.style.display = 'block';
+}
+
+function fullscreen() {
+    if (video.requestFullScreen) {
+        video.requestFullScreen();
+    } else if (video.webkitRequestFullScreen) {
+        video.webkitRequestFullScreen();
+    } else if (video.mozRequestFullScreen) {
+        video.mozRequestFullScreen();
+    } else if (video.msRequestFullScreen) {
+        video.msRequestFullScreen();
+    }
 }
